@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KHISA PATIENCE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #530543;
+      color: #fff;
+      padding: 10px 10px;
+    }
+    nav {
+      text-align: start;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+    nav ul li a {
+      color: #333;
+      text-decoration: none;
+      padding-bottom: 5px;
+    }
+    nav ul li a.selected {
+      color: purple;
+      border-bottom: 2px solid purple;
+    }
+    section {
+      display: none;
+      padding: 20px;
+    }
+    section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Patience Khisa</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#home" class="selected">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+  </ul>
+</nav>
+
+<section id="home" class="active">
+  <h2>Home</h2>
+  <p>Welcome to my portfolio website. Here you can learn more about me and my projects.</p>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>Hello, I am a website developer and a UX/UI enthusiast. I am passionate about creating engaging and user-friendly web experiences.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <p>Here are some of the projects I have worked on:</p>
+  <ul>
+    <li>Project 1: Portfolio Website</li>
+    <li>Project 2: Online Store Website</li>
+    <li>Project 3: Blogging Platform</li>
+  </ul>
+</section>
+
+<script>
+  // Add functionality to navigate between sections
+  const navLinks = document.querySelectorAll('nav ul li a');
+  const sections = document.querySelectorAll('section');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      sections.forEach(section => {
+        if (section.getAttribute('id') === targetId) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+      navLinks.forEach(link => link.classList.remove('selected'));
+      this.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>
